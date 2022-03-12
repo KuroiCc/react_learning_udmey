@@ -1,18 +1,19 @@
 import React from 'react'
+import styles from './Robot.module.css'
 
 interface RobotProps {
-  key: number
+  id: number
   name: string
   email: string
 }
 
-const Robot: React.FC<RobotProps> = ({ key, name, email }) => {
+const Robot: React.FC<RobotProps> = ({ id, name, email }) => {
   return (
-    <li>
-      <img src={`https://robohash.org/${key}`} alt="Robot" />
+    <div className={styles.cardContainer}>
+      <img src={`https://robohash.org/${id}`} alt="Robot" />
       <h2>{name}</h2>
       <p>{email}</p>
-    </li>
+    </div>
   )
 }
 
