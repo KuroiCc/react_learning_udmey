@@ -1,3 +1,7 @@
+# customize
+package-lock.json
+build
+
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,node,react,yarn
@@ -10,7 +14,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
