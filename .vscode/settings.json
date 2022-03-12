@@ -1,0 +1,8 @@
+{
+    "typescript.tsdk": "robot-gallery/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "cSpell.words": [
+        "mockdata",
+        "paren"
+    ]
+}
