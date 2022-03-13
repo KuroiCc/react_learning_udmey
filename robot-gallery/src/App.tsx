@@ -1,7 +1,8 @@
 import React from 'react'
-import robots from './mockdata/robots.json'
-import logo from './assets/images/logo.svg'
 import styles from './App.module.css'
+import logo from './assets/images/logo.svg'
+
+import robots from './mockdata/robots.json'
 import Robot from './components/Robot'
 
 function App() {
