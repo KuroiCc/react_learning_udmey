@@ -34,7 +34,6 @@
         "no-unreachable": "error",
         
         // disallows a space before function parenthesis
-        "space-before-function-paren": ["error", "never"],
-        "no-undef": "off"
+        "space-before-function-paren": ["error", "never"]
     }
 }
