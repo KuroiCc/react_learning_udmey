@@ -1,15 +1,11 @@
 import React, { useContext } from 'react'
 import { appSetStateContext } from '../AppState'
-import { RobotProps } from './Robot'
+import { RobotProps } from './RobotDiscount'
 
-type WithAddToCart = Omit<RobotProps, 'handleAddToCart'>
-
-const withAddToCart = (ChildComponent: React.ComponentType<RobotProps>) => {
-  const WrappedComponent: React.FC<WithAddToCart> = (props) => {
+export const withAddToCart = (ChildComponent: React.ComponentType<RobotProps>) => {
+  const WrappedComponent: React.FC<Omit<RobotProps, 'handleAddToCart'>> = (props) => {
     const setState = useContext(appSetStateContext)
     const handleAddToCart = (id: number, name: string) => {
-      console.log('aaaa')
-
       setState((state) => ({
         ...state,
         shoppingCart: {
@@ -25,4 +21,15 @@ const withAddToCart = (ChildComponent: React.ComponentType<RobotProps>) => {
   return WrappedComponent
 }
 
-export default withAddToCart
+export const useAddToCart = () => {
+  const setState = useContext(appSetStateContext)
+  const handleAddToCart = (id: number, name: string) => {
+    setState((state) => ({
+      ...state,
+      shoppingCart: {
+        items: [...state.shoppingCart.items, { id, name }]
+      }
+    }))
+  }
+  return handleAddToCart
+}
