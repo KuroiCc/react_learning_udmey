@@ -4,6 +4,7 @@ import styles from './App.module.css'
 import logo from './assets/images/logo.svg'
 
 import Robot from './components/Robot'
+import RobotDiscount from './components/RobotDiscount'
 import ShoppingCart from './components/ShoppingCart'
 
 const App: React.FC = () => {
@@ -35,9 +36,13 @@ const App: React.FC = () => {
         <h2>loading...</h2>
       ) : (
         <div className={styles.robotList}>
-          {robotsGallery.map((robot: any) => (
-            <Robot key={robot.id} id={robot.id} email={robot.email} name={robot.name} />
-          ))}
+          {robotsGallery.map((robot: any, index: number) =>
+            index % 2 === 0 ? (
+              <Robot key={robot.id} id={robot.id} email={robot.email} name={robot.name} />
+            ) : (
+              <RobotDiscount key={robot.id} id={robot.id} email={robot.email} name={robot.name} />
+            )
+          )}
         </div>
       )}
     </div>

@@ -40,7 +40,8 @@ class ShoppingCart extends React.Component<Props, State> {
             >
               <ul>
                 {value.shoppingCart.items.map((item) => (
-                  <li key={item.name}>{item.name}</li>
+                  // eslint-disable-next-line react/jsx-key
+                  <li>{item.name}</li>
                 ))}
               </ul>
             </div>

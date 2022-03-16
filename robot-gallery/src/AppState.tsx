@@ -13,7 +13,7 @@ const defaultContextValue: AppStateValue = {
 export const appContext = React.createContext(defaultContextValue)
 export const appSetStateContext = React.createContext<
   React.Dispatch<React.SetStateAction<AppStateValue>>
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 >(() => {})
 
 export const AppStateProvider: React.FC = ({ children }) => {
