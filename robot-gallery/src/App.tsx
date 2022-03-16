@@ -30,21 +30,19 @@ const App: React.FC = () => {
         <h1>罗伯特机器人炫酷吊炸天online购物平台的名字要长</h1>
       </div>
       <ShoppingCart />
-      {/* {(!error || error !== '') && <div>site error{error}</div>} */}
       {error && <div>site error: {error}</div>}
-      {loading ? (
-        <h2>loading...</h2>
-      ) : (
-        <div className={styles.robotList}>
-          {robotsGallery.map((robot: any, index: number) =>
-            index % 2 === 0 ? (
-              <Robot key={robot.id} id={robot.id} email={robot.email} name={robot.name} />
-            ) : (
-              <RobotDiscount key={robot.id} id={robot.id} email={robot.email} name={robot.name} />
-            )
-          )}
-        </div>
-      )}
+      {
+        // prettier-ignore
+        loading
+          ? (<h2>loading...</h2>)
+          : (<div className={styles.robotList}>
+            {robotsGallery.map((robot: any, index: number) =>
+              index % 2 === 0
+                ? (<Robot key={robot.id} id={robot.id} email={robot.email} name={robot.name} />)
+                : (<RobotDiscount key={robot.id} id={robot.id} email={robot.email} name={robot.name} />)
+            )}
+          </div>)
+      }
     </div>
   )
 }
