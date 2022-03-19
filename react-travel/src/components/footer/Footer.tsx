@@ -1,5 +1,10 @@
 import React from 'react'
+import { Layout, Typography } from 'antd'
 
 export const Footer: React.FC = () => {
-  return <p>Footer</p>
+  return (
+    <Layout.Footer>
+      <Typography.Title level={3}>copyright © 2022 React Travel</Typography.Title>
+    </Layout.Footer>
+  )
 }
