@@ -1,0 +1,10 @@
+.business-partners-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: white;
+}
+
+.business-partners-img {
+  width: 100%;
+  display: block;
+}

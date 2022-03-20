@@ -2,8 +2,10 @@
     "typescript.tsdk": "robot-gallery/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "cSpell.words": [
+        "antd",
         "mockdata",
         "paren",
+        "sider",
         "Slidefu",
         "truetype"
     ]
