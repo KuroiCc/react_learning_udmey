@@ -7,7 +7,14 @@ import sideImage1 from './assets/images/sider_2019_12-09.png'
 import sideImage2 from './assets/images/sider_2019_02-04.png'
 import sideImage3 from './assets/images/sider_2019_02-04-2.png'
 
-import { Header, Footer, SideMenu, Carousel, ProductCollection } from './components'
+import {
+  Header,
+  Footer,
+  SideMenu,
+  Carousel,
+  ProductCollection,
+  BusinessPartners
+} from './components'
 
 function App() {
   return (
@@ -50,6 +57,7 @@ function App() {
           sideImage={sideImage3}
           products={productList3}
         />
+      <BusinessPartners />
       </div>
       <Footer />
     </div>
