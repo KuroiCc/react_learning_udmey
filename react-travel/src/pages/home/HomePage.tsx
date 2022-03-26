@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col, Typography } from 'antd'
+import { withTranslation, WithTranslation } from 'react-i18next'
 
 import styles from './HomePage.module.css'
 import { productList1, productList2, productList3 } from './mockups'
@@ -16,8 +17,9 @@ import {
   BusinessPartners
 } from '../../components'
 
-export class HomePage extends React.Component {
+class HomePageComponent extends React.Component<WithTranslation> {
   render() {
+    const { t } = this.props
     return (
       <>
         {' '}
@@ -35,7 +37,7 @@ export class HomePage extends React.Component {
           <ProductCollection
             title={
               <Typography.Title level={3} type="warning">
-                爆款推荐
+                {t('home_page.hot_recommended')}
               </Typography.Title>
             }
             sideImage={sideImage1}
@@ -44,7 +46,7 @@ export class HomePage extends React.Component {
           <ProductCollection
             title={
               <Typography.Title level={3} type="danger">
-                新品上市
+                {t('home_page.new_arrival')}
               </Typography.Title>
             }
             sideImage={sideImage2}
@@ -53,7 +55,7 @@ export class HomePage extends React.Component {
           <ProductCollection
             title={
               <Typography.Title level={3} type="success">
-                国内游推荐
+                {t('home_page.domestic_travel')}
               </Typography.Title>
             }
             sideImage={sideImage3}
@@ -66,3 +68,5 @@ export class HomePage extends React.Component {
     )
   }
 }
+
+export const HomePage = withTranslation()(HomePageComponent)

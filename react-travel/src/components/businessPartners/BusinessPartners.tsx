@@ -1,5 +1,6 @@
 import React from 'react'
 import { Divider, Typography, Row, Col } from 'antd'
+import { useTranslation } from 'react-i18next'
 
 import styles from './BusinessPartners.module.css'
 import image1 from '../../assets/images/microsoft-80658_640.png'
@@ -15,10 +16,11 @@ const companies = [
 ]
 
 export const BusinessPartners: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <div className={styles['business-partners-container']}>
       <Divider orientation="left">
-        <Typography.Title level={3}>合作伙伴</Typography.Title>
+        <Typography.Title level={3}>{t('home_page.joint_venture')}</Typography.Title>
       </Divider>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         {companies.map((company) => (
