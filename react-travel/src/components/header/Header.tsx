@@ -1,15 +1,36 @@
 import React from 'react'
 import { Typography, Input, Layout, Dropdown, Menu, Button } from 'antd'
+import { MenuInfo } from 'rc-menu/lib/interface'
 import { GlobalOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
 
+import { useSelector } from '../../redux/hooks'
+import {
+  addLanguageActionCreator,
+  changeLanguageActionCreator
+} from '../../redux/language/actions'
+import { Language } from '../../i18n/configs'
 import styles from './Header.module.css'
 import logo from '../../assets/logo.svg'
 
 export const Header: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const languageList = useSelector((state) => state.languageList)
+  const dispatch = useDispatch()
+  console.log(dispatch)
+
+  const handleChangeLanguage = (menuInfo: MenuInfo) => {
+    const { key } = menuInfo
+    if (key === 'new') {
+      dispatch(addLanguageActionCreator('新新的语言', 'new-language'))
+    } else {
+      dispatch(changeLanguageActionCreator(key as Language))
+    }
+  }
+
   return (
     <div className={styles['app-header']}>
       {/* top-header */}
@@ -19,10 +40,11 @@ export const Header: React.FC = () => {
           <Dropdown.Button
             style={{ marginLeft: 15 }}
             overlay={
-              <Menu>
-                <Menu.Item>中文</Menu.Item>
-                <Menu.Item>English</Menu.Item>
-                <Menu.Item key={'header.new'}>{t('header.add_new_language')}</Menu.Item>
+              <Menu onClick={handleChangeLanguage}>
+                {languageList.map((language) => (
+                  <Menu.Item key={language.code}>{language.name}</Menu.Item>
+                ))}
+                <Menu.Item key={'new'}>{t('header.add_new_language')}</Menu.Item>
               </Menu>
             }
             icon={<GlobalOutlined />}
