@@ -3,9 +3,11 @@
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "cSpell.words": [
         "antd",
+        "languagedetector",
         "mockdata",
         "paren",
         "sider",
+        "signin",
         "Slidefu",
         "truetype"
     ]
