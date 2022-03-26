@@ -1,8 +1,11 @@
-import i18n, { Language } from '../../i18n/configs'
+import i18n from 'i18next'
+
+import { Language } from '../../i18n/configs'
+import { CHANGE_LANGUAGE, ADD_LANGUAGE, LanguageActionType } from './actions'
 
 interface LanguageState {
   language: Language
-  languageList: { name: string; code: Language }[]
+  languageList: { name: string; code: string }[]
 }
 
 const defaultState: LanguageState = {
@@ -14,8 +17,16 @@ const defaultState: LanguageState = {
   ]
 }
 
-const languageReducer = (state = defaultState, action: unknown) => {
-  return state
+const languageReducer = (state = defaultState, action: LanguageActionType) => {
+  switch (action.type) {
+    case CHANGE_LANGUAGE:
+      i18n.changeLanguage(action.payload)
+      return { ...state, language: action.payload }
+    case ADD_LANGUAGE:
+      return { ...state, languageList: [...state.languageList, action.payload] }
+    default:
+      return state
+  }
 }
 
 export default languageReducer
