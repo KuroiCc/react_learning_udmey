@@ -20,7 +20,6 @@ export const Header: React.FC = () => {
   const navigate = useNavigate()
   const languageList = useSelector((state) => state.languageList)
   const dispatch = useDispatch()
-  console.log(dispatch)
 
   const handleChangeLanguage = (menuInfo: MenuInfo) => {
     const { key } = menuInfo
